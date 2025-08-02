@@ -1,0 +1,94 @@
+pc = {}
+pc.boot = {}
+pc.boot.System0map = "%ENCODED%"
+pc.boot.kernal0img = "%ENCODED%"
+pc.boot.initrd0img = "%ENCODED%"
+pc.sys = {}
+pc.sys.config0sys = "%ENCODED%"
+pc.sys.network0cfg = "%ENCODED%"
+pc.sys.xorg0sys = "%ENCODED%"
+pc.etc = {}
+pc.etc.passwd = "%TXT% %CONTENT [root: 202cb962ac59075b964b07152d234b70\\\user: 202cb962ac59075b964b07152d234b70]%"
+pc.etc.fstab = "%TXT% %CONTENT []%"
+pc.etc.xorg0conf = "%TXT% %CONTENT []%"
+pc.etc.apt = {}
+pc.etc.apt.aptcache0bin = "%BINARY%"
+pc.etc.apt.sources0txt = "%TXT% %CONTENT [{\\\""official_server"": true,\\\""sourceList"": {\\\}}]%"
+pc.etc.init0d = {}
+pc.lib = {}
+pc.lib.aptclient0so = "%ENCODED%"
+pc.lib.crypto0so = "%ENCODED%"
+pc.lib.init0so = "%ENCODED%"
+pc.lib.kernel_module0so = "%ENCODED%"
+pc.lib.libhttp0so = "%ENCODED%"
+pc.lib.librshell0so = "%ENCODED%"
+pc.lib.libssh0so = "%ENCODED%"
+pc.lib.metaxploit0so = "%ENCODED%"
+pc.lib.net0so = "%ENCODED%"
+pc.lib.blockchain0so = "%ENCODED%"
+pc.Public = {}
+pc.Public.htdocs = {}
+pc.Public.htdocs.website0html = "%TXT% %CONTENT []%"
+pc.Public.htdocs.downloads = {}
+pc.server = {}
+pc.server.httpd = "%BINARY%"
+pc.server.conf = {}
+pc.server.conf.httpd0conf = "%TXT% %CONTENT [[{\\\""softwareDescription"": {\\\""myprogram"": {\\\""description"": ""Example description"",\\\""price"": 0\\\}\\\}\\\}]%"
+pc.var = {}
+pc.var.system0log = "%LOG% %LOGCONTENT []%"
+pc.bin = {}
+pc.bin.aircrack = "%BINARY%"
+pc.bin.aireplay = "%BINARY%"
+pc.bin.airmon = "%BINARY%"
+pc.bin.apt2get = "%BINARY%"
+pc.bin.build = "%BINARY%"
+pc.bin.cat = "%BINARY%"
+pc.bin.cd = "%BINARY%"
+pc.bin.chgrp = "%BINARY%"
+pc.bin.chmod = "%BINARY%"
+pc.bin.chown = "%BINARY%"
+pc.bin.cp = "%BINARY%"
+pc.bin.decipher = "%BINARY%"
+pc.bin.ftp = "%BINARY%"
+pc.bin.groupadd = "%BINARY%"
+pc.bin.groupdel = "%BINARY%"
+pc.bin.groups = "%BINARY%"
+pc.bin.http2server = "%BINARY%"
+pc.bin.ifconfig = "%BINARY%"
+pc.bin.iwconfig = "%BINARY%"
+pc.bin.iwlist = "%BINARY%"
+pc.bin.kill = "%BINARY%"
+pc.bin.ln = "%BINARY%"
+pc.bin.ls = "%BINARY%"
+pc.bin.man = "%BINARY%"
+pc.bin.mkdir = "%BINARY%"
+pc.bin.mv = "%BINARY%"
+pc.bin.nmap = "%BINARY%"
+pc.bin.nslookup = "%BINARY%"
+pc.bin.passwd = "%BINARY%"
+pc.bin.ping = "%BINARY%"
+pc.bin.ps = "%BINARY%"
+pc.bin.pwd = "%BINARY%"
+pc.bin.reboot = "%BINARY%"
+pc.bin.rm = "%BINARY%"
+pc.bin.rmdir = "%BINARY%"
+pc.bin.ssh = "%BINARY%"
+pc.bin.sudo = "%BINARY%"
+pc.bin.touch = "%BINARY%"
+pc.bin.useradd = "%BINARY%"
+pc.bin.userdel = "%BINARY%"
+pc.bin.whoami = "%BINARY%"
+pc.bin.whois = "%BINARY%"
+
+printTree = function(node, prefix)
+	for keys in node.key
+		value = node[key]
+		realName = key.replace("0", ".").replace("2", "-")
+		print prefix + "|-- " + realName
+		if typeof(value) == "map" then
+			printTree(value, prefix + "|   ")
+		end if
+	end for
+end function
+
+printTree(pc, "")
