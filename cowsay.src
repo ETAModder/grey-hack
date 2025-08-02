@@ -1,0 +1,66 @@
+say = ""
+for p in params
+	say = say + p + " "
+end for
+say = say.trim
+
+if say == "" then
+	print("nothing to say.")
+	return
+end if
+
+maxwidth = 40
+words = say.split(" ")
+lines = []
+line = ""
+
+for w in words
+	extra = 0
+	if line != "" then extra = 1
+	if (line.len + w.len + extra) <= maxwidth then
+		if line != "" then
+			line = line + " " + w 
+		else
+			line = w
+		end if
+	else
+		lines.push(line)
+		line = w
+	end if
+end for
+
+if line != "" then lines.push(line)
+
+if lines.len == 0 then
+	print("lines is empty after processing")
+	return
+end if
+
+maxlen = 0
+for l in lines
+	if l.len > maxlen then maxlen = l.len
+end for
+
+print(" " + "_" * (maxlen + 2))
+i = 0
+while i < lines.len
+	l = lines[i]
+	pad = " " * (maxlen - l.len)
+	if lines.len == 1 then
+		print("< " + l + pad + " >")
+	else if i == 0 then
+		print("/ " + l + pad + " \")
+	else if i == lines.len - 1 then
+		print("\ " + l + pad + " /")
+	else
+		print("| " + l + pad + " |")
+	end if
+	i = i + 1
+end while
+
+print(" " + "-" * (maxlen + 2))
+print("        \   ^__^")
+print("         \  (oo)\_______")
+print("            (__)\       )\/\")
+print("                ||----w |")
+print("                ||     ||")
