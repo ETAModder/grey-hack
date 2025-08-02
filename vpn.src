@@ -1,0 +1,10 @@
+print("<color=#555555><b>[</b><u><color=#d142e6>xVPN</u><b><color=#555555>] <color=#b400ff>x</color><color=#d142e6>V</color><color=#e66bcf>P</color><color=#f488bb>N</color> <color=#f99fb4>l</color><color=#f5a6ca>o</color><color=#ebaee0>a</color><color=#d7b4ee>d</color><color=#b9baf8>i</color><color=#9bc0fa>n</color><color=#7cc6fd>g</color><color=#5eccff>...</color>")
+wait(1)
+shell = get_shell.connect_service("", 22, "root", "", "ssh")
+if typeof(shell) == "string" then exit(shell)
+if shell then
+	print("<color=#555555><b>[</b><u><color=#d142e6>xVPN</u><b><color=#555555>] <color=#00b400>x</color><color=#26b938>V</color><color=#4cbf50>P</color><color=#72c568>N</color> <color=#78c96d>c</color><color=#7fcd73>o</color><color=#85d178>n</color><color=#8bd57e>n</color><color=#92d984>e</color><color=#98dd89>c</color><color=#9fe18f>t</color><color=#a5e594>e</color><color=#abf99a>d</color><color=#b1ffa0>!</color>")
+    shell.start_terminal
+else 
+    exit("<color=red>failed connecting to vpn")
+end if
